@@ -15,7 +15,7 @@ export function ArrowLink({ children, href }: ArrowLinkProps) {
       <span>{children}</span>
       <span
         aria-hidden="true"
-        className="inline-flex size-9 items-center justify-center rounded-full border border-line transition-all duration-300 group-hover:border-ink group-hover:bg-ink group-hover:text-white"
+        className="inline-flex size-9 items-center justify-center rounded-full border border-line transition-all duration-300 group-hover:border-ink group-hover:bg-ink group-hover:text-on-ink"
       >
         <svg
           className="size-4 transition-transform duration-300 group-hover:translate-x-0.5"

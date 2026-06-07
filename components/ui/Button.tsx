@@ -16,13 +16,13 @@ export function Button({
 }: ButtonProps) {
   const styles =
     variant === "primary"
-      ? "bg-ink text-white hover:bg-accent"
-      : "border border-line bg-white text-ink hover:border-ink";
+      ? "bg-ink text-on-ink hover:bg-accent"
+      : "border border-line bg-background text-ink hover:border-ink";
   const className = `inline-flex min-h-12 items-center justify-center rounded-full px-6 text-sm font-medium transition-colors duration-300 ${styles}`;
 
   if (!href || disabled) {
     return (
-      <span aria-disabled="true" className={`${className} cursor-default opacity-45`}>
+      <span aria-disabled="true" className={`${className} cursor-default opacity-55`}>
         {children}
       </span>
     );
