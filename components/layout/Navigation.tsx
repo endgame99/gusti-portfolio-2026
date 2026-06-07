@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Container } from "@/components/ui/Container";
+import { LanguageToggle } from "@/components/ui/LanguageToggle";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { navigation } from "@/data/navigation";
 import { site } from "@/data/site";
 import { MobileMenu } from "./MobileMenu";
@@ -14,63 +16,74 @@ export function Navigation() {
 
   return (
     <header className="absolute inset-x-0 top-0 z-50">
-      <Container className="flex h-24 items-center justify-between">
+      <Container className="grid h-[clamp(4.75rem,6vw,6rem)] grid-cols-[1fr_auto] items-center xl:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
         <Link
           aria-label="Gustiansyah home"
-          className="relative z-50 text-base font-semibold tracking-[-0.025em]"
+          className="relative z-50 w-fit text-base font-semibold tracking-[-0.025em]"
           href="/"
           onClick={() => setMenuOpen(false)}
         >
           {site.name}
         </Link>
 
-        <nav aria-label="Primary navigation" className="hidden items-center gap-9 lg:flex">
-          {navigation.map((item) => {
-            const active =
-              item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+        <div className="hidden items-center gap-3 xl:flex">
+          <ThemeToggle />
+          <nav aria-label="Primary navigation" className="flex items-center gap-7 2xl:gap-9">
+            {navigation.map((item) => {
+              const active = pathname.startsWith(item.href);
 
-            return (
-              <Link
-                aria-current={active ? "page" : undefined}
-                className={`text-sm transition-colors hover:text-accent ${
-                  active ? "text-ink" : "text-muted"
-                }`}
-                href={item.href}
-                key={item.label}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-        </nav>
+              return (
+                <Link
+                  aria-current={active ? "page" : undefined}
+                  className={`whitespace-nowrap text-sm transition-colors hover:text-accent ${
+                    active ? "text-ink" : "text-muted"
+                  }`}
+                  href={item.href}
+                  key={item.label}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
 
-        <div className="hidden lg:block">
+        <div className="hidden items-center justify-self-end gap-2 xl:flex 2xl:gap-3">
+          <LanguageToggle />
           <Link
-            className="inline-flex min-h-11 items-center rounded-full border border-line px-5 text-sm font-medium transition-colors hover:border-ink"
+            className="inline-flex min-h-11 items-center justify-center whitespace-nowrap rounded-full bg-ink px-5 text-sm font-medium text-on-ink transition-colors hover:bg-accent"
             href={site.contactHref}
           >
-            Say Hello
+            Hire Me
           </Link>
+          <button
+            aria-disabled="true"
+            className="inline-flex min-h-11 cursor-default items-center justify-center whitespace-nowrap rounded-full border border-line px-5 text-sm font-medium text-muted"
+            disabled
+            type="button"
+          >
+            Download CV
+          </button>
         </div>
 
         <button
           aria-controls="mobile-menu"
           aria-expanded={menuOpen}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
-          className="relative z-50 flex min-h-11 min-w-11 items-center justify-center lg:hidden"
+          className="relative z-50 flex min-h-11 min-w-11 items-center justify-center justify-self-end xl:hidden"
           onClick={() => setMenuOpen((open) => !open)}
           type="button"
         >
           <span className="sr-only">{menuOpen ? "Close menu" : "Open menu"}</span>
-          <span className="relative block h-3.5 w-6">
+          <span className="relative block h-4 w-6">
             <span
-              className={`absolute left-0 top-0.5 h-px w-6 bg-ink transition-transform duration-300 ${
-                menuOpen ? "translate-y-[5px] rotate-45" : ""
+              className={`absolute left-0 top-1 h-px w-6 bg-ink transition-transform duration-300 ${
+                menuOpen ? "translate-y-1 rotate-45" : ""
               }`}
             />
             <span
-              className={`absolute bottom-0.5 left-0 h-px w-6 bg-ink transition-transform duration-300 ${
-                menuOpen ? "-translate-y-[5px] -rotate-45" : ""
+              className={`absolute bottom-1 left-0 h-px w-6 bg-ink transition-transform duration-300 ${
+                menuOpen ? "-translate-y-1 -rotate-45" : ""
               }`}
             />
           </span>

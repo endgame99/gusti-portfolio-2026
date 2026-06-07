@@ -5,10 +5,10 @@ import { site } from "@/data/site";
 
 export function ClosingCTA() {
   return (
-    <section className="bg-ink py-24 text-white sm:py-32 lg:py-40" id="contact">
+    <section className="bg-ink py-24 text-on-ink sm:py-32 lg:py-40" id="contact">
       <Container>
         <Reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-white/55">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-on-ink/55">
             Start a conversation
           </p>
           <div className="mt-10 grid gap-12 lg:grid-cols-[1.35fr_0.65fr] lg:items-end">
@@ -16,15 +16,15 @@ export function ClosingCTA() {
               Let&apos;s make the next idea clear.
             </h2>
             <div className="lg:justify-self-end">
-              <p className="max-w-sm text-lg leading-8 text-white/65">
+              <p className="max-w-sm text-lg leading-8 text-on-ink/65">
                 Contact details are coming soon. For now, the conversation can
                 start here.
               </p>
               <Link
-                className="mt-8 inline-flex min-h-12 items-center rounded-full bg-white px-6 text-sm font-medium text-ink transition-colors hover:bg-[#dbe9ff]"
+                className="mt-8 inline-flex min-h-12 items-center rounded-full bg-background px-6 text-sm font-medium text-ink transition-colors hover:text-accent"
                 href={site.contactHref}
               >
-                Say Hello
+                Hire Me
               </Link>
             </div>
           </div>
