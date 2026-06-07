@@ -1,6 +1,6 @@
 export const expertise = [
-  "Art Direction",
-  "Brand Visual System",
+  "Image Generator",
+  "Video Generator",
   "Product Visual Storytelling",
   "E-commerce Creative",
   "Campaign Visuals",
