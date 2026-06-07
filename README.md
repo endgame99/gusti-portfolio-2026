@@ -44,3 +44,19 @@ FAT SPORT
 Do not create a generic CV portfolio.  
 Do not invent final content.  
 Use TBD / Coming Soon until final content is provided.
+
+## Local Development
+
+```bash
+npm install
+npm run dev
+```
+
+Open `http://localhost:3000`.
+
+## Foundation Scope
+
+The current build includes the global visual system, responsive navigation,
+homepage sections, editable content data, Motion reveals, and minimal route
+placeholders. Final project visuals and case-study content are intentionally not
+included yet.
